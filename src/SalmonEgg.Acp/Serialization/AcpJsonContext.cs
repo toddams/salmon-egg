@@ -37,6 +37,7 @@ namespace SalmonEgg.Acp.Serialization;
 [JsonSerializable(typeof(ClientCapabilities))]
 [JsonSerializable(typeof(AuthCapabilities))]
 [JsonSerializable(typeof(ClientSessionCapabilities))]
+[JsonSerializable(typeof(CompactionCapabilities))]
 [JsonSerializable(typeof(SessionConfigOptionsCapabilities))]
 [JsonSerializable(typeof(BooleanConfigOptionCapabilities))]
 [JsonSerializable(typeof(FsCapability))]

@@ -110,6 +110,7 @@ SalmonEgg.Acp.Protocol.ClientCapabilityMetadata stable
 SalmonEgg.Acp.Protocol.ClientInfo stable
 SalmonEgg.Acp.Protocol.ClientSessionCapabilities stable
 SalmonEgg.Acp.Protocol.CommandPermissionSubject draft
+SalmonEgg.Acp.Protocol.CompactionCapabilities stable
 SalmonEgg.Acp.Protocol.CompleteElicitationNotification stable
 SalmonEgg.Acp.Protocol.ConfigOption stable
 SalmonEgg.Acp.Protocol.ConfigOptionGroup stable

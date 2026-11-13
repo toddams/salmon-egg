@@ -397,6 +397,25 @@ public sealed class AcpJsonContextTests
         Assert.Equal(InitializeClientProtocolPolicy.V2LegacyClientCapabilitiesMessage, exception.Message);
     }
 
+    [Fact]
+    public void InitializeParams_V1DeclaresSessionCompactionCapability()
+    {
+        var initializeParams = new InitializeParams
+        {
+            ProtocolVersion = AcpProtocolVersion.V1,
+            ClientCapabilities = new ClientCapabilities(session: new ClientSessionCapabilities
+            {
+                Compaction = new CompactionCapabilities()
+            })
+        };
+
+        var json = JsonSerializer.Serialize(initializeParams, AcpJsonContext.Default.InitializeParams);
+
+        using var document = JsonDocument.Parse(json);
+        var session = document.RootElement.GetProperty("clientCapabilities").GetProperty("session");
+        Assert.Equal(JsonValueKind.Object, session.GetProperty("compaction").ValueKind);
+    }
+
     [Theory]
     [InlineData(0)]
     [InlineData(3)]

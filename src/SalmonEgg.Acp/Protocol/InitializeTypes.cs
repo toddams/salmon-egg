@@ -230,6 +230,20 @@ namespace SalmonEgg.Acp.Protocol
         [JsonPropertyName("configOptions")]
         public SessionConfigOptionsCapabilities? ConfigOptions { get; init; }
 
+        /// <summary>
+        /// Declares that the client handles <c>compaction_update</c> and <c>compaction_summary_chunk</c>
+        /// session updates (ACP Session Compaction RFD). Null means the client does not advertise support.
+        /// </summary>
+        [JsonPropertyName("compaction")]
+        public CompactionCapabilities? Compaction { get; init; }
+
+    }
+
+    /// <summary>
+    /// Client compaction capability. An empty object advertises support; ACP defines no fields yet.
+    /// </summary>
+    public sealed record CompactionCapabilities : AcpProtocolObject
+    {
     }
 
     /// <summary>
