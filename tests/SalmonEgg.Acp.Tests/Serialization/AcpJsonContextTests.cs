@@ -416,6 +416,15 @@ public sealed class AcpJsonContextTests
         Assert.Equal(JsonValueKind.Object, session.GetProperty("compaction").ValueKind);
     }
 
+    [Fact]
+    public void ClientSessionCapabilities_OmitsCompactionWhenNotDeclared()
+    {
+        var json = JsonSerializer.Serialize(new ClientSessionCapabilities(), AcpJsonContext.Default.ClientSessionCapabilities);
+
+        using var document = JsonDocument.Parse(json);
+        Assert.False(document.RootElement.TryGetProperty("compaction", out _));
+    }
+
     [Theory]
     [InlineData(0)]
     [InlineData(3)]

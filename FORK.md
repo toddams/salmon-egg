@@ -19,7 +19,8 @@ The entries run oldest first.
 ## A v1 client can declare `clientCapabilities.session.compaction`
 
 - **Used by:** Runa's chat, which declares it in every `initialize`
-- **Tests:** `AcpJsonContextTests.InitializeParams_V1DeclaresSessionCompactionCapability`
+- **Tests:** `AcpJsonContextTests.InitializeParams_V1DeclaresSessionCompactionCapability` and
+  `AcpJsonContextTests.ClientSessionCapabilities_OmitsCompactionWhenNotDeclared`
 
 **Why.** ACP's [Session Compaction RFD](https://agentclientprotocol.com/rfds/session-compaction.md) adds the
 `compaction_update` and `compaction_summary_chunk` session updates, and in v1 an agent may send them only to a client
